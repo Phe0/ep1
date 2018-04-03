@@ -4,6 +4,8 @@
 #include <string>
 #include <bits/stdc++>
 
+using namespace std;
+
 class Imagem {
 
 	//Atributos

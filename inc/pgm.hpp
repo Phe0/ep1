@@ -4,6 +4,8 @@
 #include <bits/stdc++>
 #include "imagem.hpp"
 
+using namespace std;
+
 class Pgm: public Imagem {
 
 	private:

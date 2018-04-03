@@ -5,6 +5,8 @@
 #include "imagem.hpp"
 #include "pixel.hpp"
 
+using namespace std;
+
 class Ppm : public Imagem{
 
 	private:
