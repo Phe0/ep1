@@ -8,16 +8,18 @@ class Imagem {
 
 	//Atributos
 	private:
+		string arquivo;
 		string tipo;
 		int altura;
 		int largura;
 		int valor;
-		vector <int>
 
 	//Métodos
 	public:
 		Imagem();
 		~Imagem();
+		void setArquivo(string arquivo);
+		string getArquivo();
 		void setTipo(string tipo);
 		string getTipo();
 		void setAltura(int altura);

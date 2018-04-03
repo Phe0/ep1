@@ -8,6 +8,13 @@
 class Ppm : public Imagem{
 
 	private:
-		int 
+		vector<int> matriz_rgb;
 
+	public: 
+		Ppm();
+		~Ppm();
+		void setMatriz_rgb(vector<int> matriz_rgb);
+		vector<int> getMatriz_rgb();
 }
+
+#endif
