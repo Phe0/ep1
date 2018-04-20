@@ -1,4 +1,4 @@
-/*
+
 #ifndef PGM_HPP
 #define PGM_HPP
 
@@ -11,16 +11,9 @@ using namespace std;
 
 class Pgm: public Imagem {
 
-	private:
-		stringstream matriz;
-
 	public: 
 		Pgm();
 		~Pgm();
-		void setMatriz(stringstream matriz);
-		stringstream getMatriz();
-		void lerPgm(stringstream matriz);
 };
 
 #endif
-*/

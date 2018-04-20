@@ -6,17 +6,17 @@
 using namespace std;
 
 int main (int argc, char ** argv){
-Imagem * imagem1 = new Imagem();
+Pgm * pgm1 = new Pgm();
 string nome;
 
 cin>>nome;
 
-imagem1->setArquivo(nome);
+pgm1->setArquivo(nome);
 
-imagem1->lerImagem();
+pgm1->lerImagem();
 
-imagem1->printImagem();
+pgm1->printImagem();
 
-delete imagem1;
+delete pgm1;
 
 }

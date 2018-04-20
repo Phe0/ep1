@@ -16,7 +16,7 @@ class Imagem {
 		int altura;
 		int largura;
 		int valor;
-		string matriz;
+		char * matriz;
 
 	//Métodos
 	public:
@@ -36,6 +36,8 @@ class Imagem {
 		int getLargura();
 		void setValor(int valor);
 		int getValor();
+		void setMatriz(vector <char> matriz);
+		vector <char> getMatriz();
 };
 
 #endif

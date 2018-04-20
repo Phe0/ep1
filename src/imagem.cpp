@@ -14,11 +14,10 @@ Imagem::Imagem(){
 	altura = 0; 
 	largura = 0;
 	valor = 0;
-	vector <char> matriz;
 }
 
 Imagem::~Imagem(){
-
+ 
 }
 
 void Imagem::setArquivo(string arquivo){
@@ -37,11 +36,13 @@ void Imagem::lerImagem(){
 	stringstream alturaELargura;
 
 	//primeira linha
-	getline(infile,this->tipo);
+	getline(infile,troca);
+	this->tipo = troca;
 	outfile << this->tipo << endl;
 	
 	//segunda linha
-	getline(infile,this->comentario);
+	getline(infile,troca);
+	this->tipo = troca;
 	outfile << this->comentario << endl;
 
 	//terceira linha 
@@ -56,7 +57,7 @@ void Imagem::lerImagem(){
 	//quarta linha
 	getline(infile, troca);
 
-	this->valor = atoi(troca.c_str());
+	setValor(atoi(troca.c_str()));
 	outfile << this->valor << endl;
 
 	infile.get();
@@ -67,7 +68,6 @@ void Imagem::lerImagem(){
 	for(int i = 0; i < this->altura; i++){
 		for(int k = 0; k < this->largura; k++){
 			infile.get(pixel[i*largura+k]);
-			cout<<pixel[i*largura+k];
 		}
 	}
 
@@ -118,3 +118,12 @@ void Imagem::setValor(int valor){
 int Imagem::getValor(){
 	return valor;
 }
+/*
+void Imagem::setMatriz(char matriz){
+	this->matriz = matriz;
+}
+
+char Imagem::getMatriz(){
+	return matriz;
+}
+*/
