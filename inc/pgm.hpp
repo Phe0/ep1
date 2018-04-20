@@ -1,7 +1,10 @@
+/*
 #ifndef PGM_HPP
 #define PGM_HPP
 
-#include <bits/stdc++>
+#include <bits/stdc++.h>
+#include <fstream>
+#include <sstream>
 #include "imagem.hpp"
 
 using namespace std;
@@ -9,12 +12,15 @@ using namespace std;
 class Pgm: public Imagem {
 
 	private:
-		vector<vector<int> > matriz;
+		stringstream matriz;
 
 	public: 
 		Pgm();
 		~Pgm();
-		void setMatriz(vector<vector<int> > matriz );
-}
+		void setMatriz(stringstream matriz);
+		stringstream getMatriz();
+		void lerPgm(stringstream matriz);
+};
 
 #endif
+*/

@@ -1,7 +1,8 @@
+/*
 #ifndef PIXEL_HPP
 #define PIXEL_HPP
 
-#include <bits/stdc++>
+#include <bits/stdc++.h>
 #include "imagem.hpp"
 
 using namespace std;
@@ -25,3 +26,4 @@ class Pixel {
 }
 
 #endif
+*/

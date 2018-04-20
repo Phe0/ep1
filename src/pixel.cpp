@@ -1,4 +1,5 @@
-#include <bits/stdc++>
+/*
+#include <bits/stdc++.h>
 #include "pixel.hpp"
 
 using namespace std;
@@ -32,3 +33,4 @@ void setBlue(int blue){
 int getBlue(){
 	return blue;
 }
+*/

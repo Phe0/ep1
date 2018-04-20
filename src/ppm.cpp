@@ -1,4 +1,5 @@
-#include <bits/stdc++>
+/*
+#include <bits/stdc++.h>
 #include "ppm.hpp"
 
 using namespace std;
@@ -18,3 +19,4 @@ void Ppm::setMatriz_rgb(vector<int> matriz_rgb){
 vector<int> Ppm::getMatriz_rgb(){
 	return matriz_rgb;
 }
+*/
