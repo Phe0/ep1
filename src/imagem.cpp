@@ -42,7 +42,7 @@ void Imagem::lerImagem(){
 	
 	//segunda linha
 	getline(infile,troca);
-	this->tipo = troca;
+	this->comentario = troca;
 	outfile << this->comentario << endl;
 
 	//terceira linha 
@@ -50,14 +50,12 @@ void Imagem::lerImagem(){
 	alturaELargura.str(troca);
 	alturaELargura>>altura>>largura;
 
-	this->altura = altura;
-	this->largura = largura;
 	outfile << this->altura << " " << this->largura << endl;
 
 	//quarta linha
 	getline(infile, troca);
 
-	setValor(atoi(troca.c_str()));
+	this->valor = atoi(troca.c_str());
 	outfile << this->valor << endl;
 
 	infile.get();
@@ -118,12 +116,11 @@ void Imagem::setValor(int valor){
 int Imagem::getValor(){
 	return valor;
 }
-/*
-void Imagem::setMatriz(char matriz){
+
+void Imagem::setMatriz(char * matriz){
 	this->matriz = matriz;
 }
 
-char Imagem::getMatriz(){
+char * Imagem::getMatriz(){
 	return matriz;
 }
-*/

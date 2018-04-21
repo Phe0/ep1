@@ -36,8 +36,8 @@ class Imagem {
 		int getLargura();
 		void setValor(int valor);
 		int getValor();
-		void setMatriz(vector <char> matriz);
-		vector <char> getMatriz();
+		void setMatriz(char * matriz);
+		char * getMatriz();
 };
 
 #endif
