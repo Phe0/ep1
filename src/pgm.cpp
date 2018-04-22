@@ -46,10 +46,10 @@ void Pgm::descriptografia(){
 
 	unsigned char * termo = new unsigned char[this->tamanho];
 
-	for(int i = this->pixelInicial - 1; i < this->pixelInicial + this->tamanho - 1; i++ ){
+	for(int i = this->pixelInicial ; i < this->pixelInicial + this->tamanho ; i++ ){
 		termo[t] = this->matriz[i];
 		//cout<< "aaaaaa" << t <<endl;
-		if((termo[t] < 65||(termo[t] >= 91 && termo[t] <= 96))){
+		if((termo[t] < 65||(termo[t] >= 91 && termo[t] <= 96 )||( termo[t] > 122))){
 
 		}
 		else{
@@ -63,30 +63,9 @@ void Pgm::descriptografia(){
 			termo[t] = termo[t] + 26;
 		}
 
-
-		//cout<< (char)termo[t];
 		t++;
  	}
-/*
-	for(int i = 0; i < getAltura(); i++){
-		for(int k = 0; k < getLargura(); k++){
 
-			if((i * getLargura() + k + 1)>(this->pixelInicial) && i * getLargura() + k + 1 <= (this->pixelInicial + this->tamanho)){
-				termo[t] = this->matriz[i*getLargura()+k];
-				if((termo[t] < 65||(termo[t] >= 91 && termo[t] <= 96)|| termo[t] > 122)){	
-				
-				}
-				else{
-					termo[t] = termo[t] - this->deslocamento;
-				}
-				if(termo[t-1] < 48 && termo[t]==' '){
-			
-				}
-				else if(termo[t] >= 48 && termo[t] <= 96 && (i * getLargura() + k + 1 > this->pixelInicial + 1)){
-					termo[t] = termo[t] + 26;
-				}
-			}
-*/
 	this->mensagem = (unsigned char *)termo;
 }
 

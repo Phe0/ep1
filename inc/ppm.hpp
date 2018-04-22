@@ -8,13 +8,18 @@ using namespace std;
 
 class Ppm : public Imagem{
 
-	private:
-		char cores[3];
+	public:
+		int pixelInicial;
+		int tamanho;
+		string chave;
+		unsigned char * mensagem;
 
 	public: 
 		Ppm();
 		~Ppm();
 		void lerImagem();
+		void dividirComentario();
+		void descriptografia();
 };
 
 #endif

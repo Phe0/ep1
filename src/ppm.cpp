@@ -1,4 +1,3 @@
-/*
 #include <bits/stdc++.h>
 #include "ppm.hpp"
 
@@ -26,7 +25,7 @@ void Ppm::lerImagem(){
 
 	string troca = "";
 	ifstream infile(getArquivo().c_str());
-	ofstream outfile("arquivo.ppm");
+	ofstream outfile("arquivo.pgm");
 	stringstream alturaELargura;
 	int a, b;
 
@@ -43,7 +42,7 @@ void Ppm::lerImagem(){
 	//terceira linha 
 	getline(infile,troca);
 	alturaELargura.str(troca);
-	alturaELargura>>a>>b;
+	alturaELargura >> a >> b;
 
 	setAltura(a);
 	setLargura(b);
@@ -56,19 +55,51 @@ void Ppm::lerImagem(){
 	setValor(atoi(troca.c_str()));
 	outfile << getValor() << endl;
 
-	infile.get();
+	int tamanho = getAltura() * getLargura() * 3;
+	char * pixel = new char[tamanho];
 
-	int tamanho = getAltura() * getLargura();
-	//char * pixel = new char[tamanho * 3];
-	vector <char[3]> * pixel = new vector <char[3]>;
+	for(int i = 0; i < tamanho; ++i){
+		infile.get(pixel[i]);
+		outfile << pixel[i];
+	}
 
-	for(int i = 0; i < getAltura(); i++){
-		for(int k = 0; k < getLargura(); k++){
-			infile.get(pixel[i*getAltura()+k]);;
+	this->matriz = pixel;
+}
+
+void Ppm::dividirComentario(){
+	stringstream separador;
+	string comTag;
+
+	separador.str(getComentario());
+
+	separador >> comTag >> this->tamanho >> this->chave;
+	for(unsigned int i = 0; i <comTag.length(); i++){
+		comTag[i] = comTag[i + 1];
+	}
+
+	this->pixelInicial = atoi(comTag.c_str());
+}
+
+void Ppm::descriptografia(){
+
+	string alfabeto = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+
+	for(int i = 0; i < this->chave.length(); i++){
+		chave[i] = toupper(chave[i]);
+	}
+
+	string texto = "";
+
+	for(int i = 0; i < chave.length(); i++){
+		if(chave[i] == (char)32){
+			texto += " ";
+		}
+		else{
+			int cont = 0;
+			for(int k = 0; k < alfabeto.lenght(); k++)
 		}
 	}
 
-	setMatriz(pixel);
-	outfile << getMatriz() << endl;
+	}
+
 }
-*/

@@ -58,8 +58,6 @@ void Imagem::lerImagem(){
 	this->valor = atoi(troca.c_str());
 	outfile << this->valor << endl;
 
-	infile.get();
-
 	int tamanho = this->altura * this->largura;
 	char * pixel = new char[tamanho];
 
