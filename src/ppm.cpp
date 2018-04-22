@@ -1,5 +1,5 @@
 
-#include <bits/stdc++.h>
+/*#include <bits/stdc++.h>
 #include "ppm.hpp"
 
 using namespace std;
@@ -71,3 +71,4 @@ void Ppm::lerImagem(){
 	setMatriz(pixel);
 	outfile << getMatriz() << endl;
 }
+*/

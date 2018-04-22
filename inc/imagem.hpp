@@ -16,6 +16,8 @@ class Imagem {
 		int altura;
 		int largura;
 		int valor;
+
+	protected:
 		char * matriz;
 
 	//Métodos

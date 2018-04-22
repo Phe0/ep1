@@ -48,7 +48,7 @@ void Imagem::lerImagem(){
 	//terceira linha 
 	getline(infile,troca);
 	alturaELargura.str(troca);
-	alturaELargura>>altura>>largura;
+	alturaELargura>>this->altura>>this->largura;
 
 	outfile << this->altura << " " << this->largura << endl;
 

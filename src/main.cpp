@@ -7,41 +7,23 @@ using namespace std;
 
 int main (int argc, char ** argv){
 
-	int tipo;
+	string nome;
 
-	cout<< "Se sua Imagem for do tipo PGM, digite 1" << "Se sua imagem for do tipo PPM, digite 2" << endl;
-	cin >> tipo;
+	Pgm * pgm1 = new Pgm();
 
-	if(tipo == 1){
-		Pgm * pgm1 = new Pgm();
-		string nome;
+	cin >> nome;
 
-		cout<< "Insira o nome da sua imagem:";
-		cin>>nome;
+	pgm1->setArquivo(nome);
 
-		pgm1->setArquivo(nome);
+	pgm1->lerImagem();
 
-		pgm1->lerImagem();
+	pgm1->dividirComentario();
 
-		pgm1->printImagem();
+	pgm1->descriptografia();
 
-		delete pgm1;
-	}
+	pgm1->printImagem();
 
-	else if(tipo == 2){
-		Ppm * ppm1 = new Ppm();
-		string nome;
-
-		cin>>nome;
-
-		ppm1->setArquivo(nome);
-
-		ppm1->lerImagem();
-
-		ppm1->printImagem();
-
-		delete ppm1;
-	}
+	delete pgm1;
 
 	return 0;
 }
