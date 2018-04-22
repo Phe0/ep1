@@ -44,30 +44,27 @@ void Pgm::descriptografia(){
 
 	int t = 0;
 
-	unsigned char  termo, msg[3];
+	unsigned char * termo = new unsigned char[this->tamanho];
 
 	for(int i = this->pixelInicial - 1; i < this->pixelInicial + this->tamanho - 1; i++ ){
-		termo = this->matriz[i];
+		termo[t] = this->matriz[i];
 		//cout<< "aaaaaa" << t <<endl;
-		if((termo < 65||(termo >= 91 && termo <= 96))){
+		if((termo[t] < 65||(termo[t] >= 91 && termo[t] <= 96))){
 
 		}
 		else{
-			termo = (int)termo - this->deslocamento;
+			termo[t] = (int)termo[t] - this->deslocamento;
 		}
 
-		if(msg[0] < 48 && msg[1]==' '){
+		if(termo[t-2] < 48 && termo[t-1]==' ' && t > 1){
 
 		}
-		else if(termo >= 48 && termo <= 96 && i >this->pixelInicial + 1){
-			termo = termo + 26;
+		else if(termo[t] >= 48 && termo[t] <= 96 && t > 1){
+			termo[t] = termo[t] + 26;
 		}
 
 
 		//cout<< (char)termo[t];
-		msg[0] = msg[1];
-		msg[1] = termo;
-		cout << termo;
 		t++;
  	}
 /*
@@ -89,9 +86,8 @@ void Pgm::descriptografia(){
 					termo[t] = termo[t] + 26;
 				}
 			}
-*/	
- 	cout << endl;
-	//this->mensagem = termo;
+*/
+	this->mensagem = (unsigned char *)termo;
 }
 
 void Pgm::printImagem(){

@@ -1,4 +1,3 @@
-/*
 #ifndef PPM_HPP
 #define PPM_HPP
 
@@ -19,4 +18,3 @@ class Ppm : public Imagem{
 };
 
 #endif
-*/
