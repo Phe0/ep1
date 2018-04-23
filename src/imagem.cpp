@@ -72,7 +72,7 @@ void Imagem::lerImagem(){
 }
 
 void Imagem::printImagem(){
-	cout<<this->tipo<<endl<<this->comentario<<endl<<this->altura<<" "<<this->largura<<endl<<this->valor<<endl<<this->matriz<<endl;
+	cout<<this->tipo<<endl<<this->comentario<<endl<<this->altura<<" "<<this->largura<<endl<<this->valor<<endl;
 }
 
 void Imagem::setTipo(string tipo){

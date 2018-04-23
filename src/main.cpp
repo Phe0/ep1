@@ -9,21 +9,21 @@ int main (int argc, char ** argv){
 
 	string nome;
 
-	Ppm * ppm1 = new Ppm();
+	Ppm * imagem1 = new Ppm();
 
 	cin >> nome;
 
-	ppm1->setArquivo(nome);
+	imagem1->setArquivo(nome);
 
-	ppm1->lerImagem();
+	imagem1->lerImagem();
 
-	ppm1->dividirComentario();
+	imagem1->dividirComentario();
 
-	ppm1->descriptografia();
+	imagem1->descriptografia();
 
-	ppm1->printImagem();
+	imagem1->printImagem();
 
-	delete ppm1;
+	delete imagem1;
 
 	return 0;
 }

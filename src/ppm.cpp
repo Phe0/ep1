@@ -75,31 +75,78 @@ void Ppm::dividirComentario(){
 	separador >> comTag >> this->tamanho >> this->chave;
 	for(unsigned int i = 0; i <comTag.length(); i++){
 		comTag[i] = comTag[i + 1];
-	}
+	} 
 
 	this->pixelInicial = atoi(comTag.c_str());
 }
 
 void Ppm::descriptografia(){
+	int somadorDePix;
+	string alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", firstC, chave, msg;
 
-	string alfabeto = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-
-	for(int i = 0; i < this->chave.length(); i++){
-		chave[i] = toupper(chave[i]);
+	//setar a chave para maiusculo
+	for (unsigned int i = 0; i < this->chave.length(); i++){
+		this->chave[i] = this->chave[i] - 32;
 	}
 
-	string texto = "";
+	//checar se tem letras repetidas na chave
+	for (unsigned int i = 0; i < this->chave.length(); i++){
+		unsigned int pos = i;
+		for (unsigned int j = 0; j < this->chave.length(); j++){
+			if (pos == j){
+				continue;
+			} else if(this->chave[i] == this->chave[j]){
+				cout << "Existem letras repetidas na chave encontrada. Erro fatal." << endl;
+				exit(EXIT_FAILURE); // termina a execucao do programa em caso de erro
+			}
 
-	for(int i = 0; i < chave.length(); i++){
-		if(chave[i] == (char)32){
-			texto += " ";
 		}
-		else{
-			int cont = 0;
-			for(int k = 0; k < alfabeto.lenght(); k++)
+	}
+
+	//gerar o alfabeto com a chave
+	string keyAlpha;
+
+	//comecar o alfabeto novo
+	for (unsigned int i = 0; i < this->chave.length(); i++){
+		keyAlpha += this->chave[i];
+	}
+
+	//inserir o resto do alfabeto
+	for (unsigned int i = 0; i < 26; i++){
+		keyAlpha += (char) (i+65);
+	} 
+
+	//remover letras do alfabeto que ja estejam na chave e terminar o alfabeto
+	for(unsigned int i = 0; i < keyAlpha.length(); i++){
+		for (unsigned int j = 0; j < this->chave.length(); j++){
+			if(keyAlpha[i] == this->chave[j]){
+				for(unsigned int k = this->chave.length(); k < keyAlpha.length(); k++){
+					if(keyAlpha[i] == keyAlpha[k]){
+						keyAlpha[k] = 0;
+					}
+				}
+			}
 		}
 	}
 
+	
+	cout << keyAlpha << endl;
+	unsigned char * termo = new unsigned char[this->tamanho*3];
+	int j = 0;
+	//encontrar a mensagem
+	cout << this->pixelInicial<<endl;
+	for (int i = this->pixelInicial; i < (this->tamanho*3) + this->pixelInicial; i += 3){
+		somadorDePix = (this->matriz[i] % 10) + (this->matriz[i+1] % 10) + (this->matriz[i+2] % 10);
+		cout << (unsigned int)this->matriz[i]<<" "<<(unsigned int)this->matriz[i+1]<<" "<<(unsigned int)this->matriz[i+2]<<endl;
+		//cout <<  <<" ";
+		cout << this->matriz[i] << endl;
+		if (somadorDePix == 0){
+			termo[j] = ' ';			
+		} 
+		else{	
+			termo[j] = keyAlpha[somadorDePix];
+		}
+		j++;
 	}
-
+	cout << termo << endl;	
 }
