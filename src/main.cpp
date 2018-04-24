@@ -9,21 +9,42 @@ int main (int argc, char ** argv){
 
 	string nome;
 
-	Ppm * imagem1 = new Ppm();
-
 	cin >> nome;
 
-	imagem1->setArquivo(nome);
+	int tamanho = nome.length();
 
-	imagem1->lerImagem();
+	if(nome[tamanho - 2] == 'g'){
+		Pgm * imagem1 = new Pgm;
+		imagem1->setArquivo(nome);
 
-	imagem1->dividirComentario();
+		imagem1->lerImagem();
 
-	imagem1->descriptografia();
+		imagem1->dividirComentario();
 
-	imagem1->printImagem();
+		imagem1->descriptografia();
 
-	delete imagem1;
+		imagem1->printImagem();
+
+		delete imagem1;
+	}
+
+	else if(nome[tamanho - 2] == 'p'){
+		Ppm * imagem1 = new Ppm;
+		imagem1->setArquivo(nome);
+
+		imagem1->lerImagem();
+
+		imagem1->dividirComentario();
+
+		imagem1->descriptografia();
+
+		imagem1->printImagem();
+	}
+
+	else{
+		cout << "Tipo de imagem invalido" << endl;
+		exit(EXIT_FAILURE);
+	}
 
 	return 0;
 }

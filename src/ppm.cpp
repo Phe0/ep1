@@ -132,7 +132,7 @@ void Ppm::descriptografia(){
 	}
 	
 	string termo = "";
-	int j = 0, k = 0;
+	int j = 0;
 
 	//encontrar a mensagem
 	for (int i = this->pixelInicial; i < (this->tamanho*3) + this->pixelInicial; i += 3){

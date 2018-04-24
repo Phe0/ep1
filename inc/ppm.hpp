@@ -12,7 +12,7 @@ class Ppm : public Imagem{
 		int pixelInicial;
 		int tamanho;
 		string chave;
-		unsigned char * mensagem;
+		string mensagem;
 
 	public: 
 		Ppm();
