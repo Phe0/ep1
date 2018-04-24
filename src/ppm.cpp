@@ -115,38 +115,38 @@ void Ppm::descriptografia(){
 	for (unsigned int i = 0; i < 26; i++){
 		keyAlpha += (char) (i+65);
 	} 
-
-	//remover letras do alfabeto que ja estejam na chave e terminar o alfabeto
+	
+	string cripto = this->chave;
 	for(unsigned int i = 0; i < keyAlpha.length(); i++){
-		for (unsigned int j = 0; j < this->chave.length(); j++){
-			if(keyAlpha[i] == this->chave[j]){
-				for(unsigned int k = this->chave.length(); k < keyAlpha.length(); k++){
-					if(keyAlpha[i] == keyAlpha[k]){
-						keyAlpha[k] = 0;
-					}
-				}
+		bool repete = false;
+		for (unsigned int j = 0; j < cripto.length(); j++){
+			if(keyAlpha[i] == cripto[j]){
+				repete = true;
+				break;
+			}
+		}
+		if (repete == false){
+			cripto += keyAlpha[i];
+		}
+	}
+	
+	string termo = "";
+	int j = 0, k = 0;
+	//encontrar a mensagem
+	for (int i = this->pixelInicial; i < (this->tamanho*3) + this->pixelInicial; i += 3){
+		somadorDePix = (this->matriz[i] % 10) + (this->matriz[i+1] % 10) + (this->matriz[i+2] % 10) ;
+		for (j = 0; j < 25; j++){
+			if (somadorDePix == 0){
+				termo += " ";
+				break;
+				
+			}
+			else if ((somadorDePix + 64) == cripto[j]){
+				termo += 65 + j ;
+				break;
 			}
 		}
 	}
 
-	
-	cout << keyAlpha << endl;
-	unsigned char * termo = new unsigned char[this->tamanho*3];
-	int j = 0;
-	//encontrar a mensagem
-	cout << this->pixelInicial<<endl;
-	for (int i = this->pixelInicial; i < (this->tamanho*3) + this->pixelInicial; i += 3){
-		somadorDePix = (this->matriz[i] % 10) + (this->matriz[i+1] % 10) + (this->matriz[i+2] % 10);
-		cout << (unsigned int)this->matriz[i]<<" "<<(unsigned int)this->matriz[i+1]<<" "<<(unsigned int)this->matriz[i+2]<<endl;
-		//cout <<  <<" ";
-		cout << this->matriz[i] << endl;
-		if (somadorDePix == 0){
-			termo[j] = ' ';			
-		} 
-		else{	
-			termo[j] = keyAlpha[somadorDePix];
-		}
-		j++;
-	}
-	cout << termo << endl;	
+	this->mensagem = termo;
 }
