@@ -9,6 +9,8 @@ int main (int argc, char ** argv){
 
 	string nome;
 
+	cout << "Inserir endereco da imagem a ser descriptografada:";
+
 	cin >> nome;
 
 	int tamanho = nome.length();
