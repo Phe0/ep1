@@ -27,7 +27,6 @@ class Imagem {
 		void setArquivo(string arquivo);
 		string getArquivo();
 		void lerImagem();
-		void printImagem();
 		void setTipo(string tipo);
 		string getTipo();
 		void setComentario(string comentario);

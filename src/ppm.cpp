@@ -21,6 +21,7 @@ Ppm::~Ppm(){
 	setValor(0);
 }
 
+//le e salva toda informação da imagem
 void Ppm::lerImagem(){
 
 	string troca = "";
@@ -65,7 +66,7 @@ void Ppm::lerImagem(){
 
 	this->matriz = pixel;
 }
-
+//divide a linha de comentario em pixel inicial, tamanho e palavra chave
 void Ppm::dividirComentario(){
 	stringstream separador;
 	string comTag;
@@ -96,14 +97,13 @@ void Ppm::descriptografia(){
 			if (pos == j){
 				continue;
 			} else if(this->chave[i] == this->chave[j]){
-				cout << "Existem letras repetidas na chave encontrada. Erro fatal." << endl;
+				cout << "Existem letras repetidas na chave ." << endl;
 				exit(EXIT_FAILURE); // termina a execucao do programa em caso de erro
 			}
 
 		}
 	}
 
-	//gerar o alfabeto com a chave
 	string keyAlpha;
 
 	//comecar o alfabeto novo
@@ -116,6 +116,7 @@ void Ppm::descriptografia(){
 		keyAlpha += (char) (i+65);
 	} 
 	
+	//apagar letras repetidas e inserir em cripto
 	string cripto = this->chave;
 	for(unsigned int i = 0; i < keyAlpha.length(); i++){
 		bool repete = false;
@@ -132,6 +133,7 @@ void Ppm::descriptografia(){
 	
 	string termo = "";
 	int j = 0, k = 0;
+
 	//encontrar a mensagem
 	for (int i = this->pixelInicial; i < (this->tamanho*3) + this->pixelInicial; i += 3){
 		somadorDePix = (this->matriz[i] % 10) + (this->matriz[i+1] % 10) + (this->matriz[i+2] % 10) ;
@@ -149,4 +151,8 @@ void Ppm::descriptografia(){
 	}
 
 	this->mensagem = termo;
+}
+
+void Ppm::printImagem(){
+	cout << "A mensagem escondida na sua imagem é:" << this->mensagem << endl;
 }

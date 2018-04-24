@@ -28,6 +28,7 @@ string Imagem::getArquivo(){
 	return arquivo;
 }
 
+//lê e salva todas as informações da imagem
 void Imagem::lerImagem(){
 
 	string troca = "";
@@ -35,7 +36,7 @@ void Imagem::lerImagem(){
 	ofstream outfile("arquivo.pgm");
 	stringstream alturaELargura;
 
-	//primeira linha
+	//primeira linha 
 	getline(infile,troca);
 	this->tipo = troca;
 	outfile << this->tipo << endl;
@@ -69,10 +70,6 @@ void Imagem::lerImagem(){
 
 	this->matriz = pixel;
 	outfile << this->matriz << endl;
-}
-
-void Imagem::printImagem(){
-	cout<<this->tipo<<endl<<this->comentario<<endl<<this->altura<<" "<<this->largura<<endl<<this->valor<<endl;
 }
 
 void Imagem::setTipo(string tipo){

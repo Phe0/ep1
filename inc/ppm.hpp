@@ -20,6 +20,7 @@ class Ppm : public Imagem{
 		void lerImagem();
 		void dividirComentario();
 		void descriptografia();
+		void printImagem();
 };
 
 #endif

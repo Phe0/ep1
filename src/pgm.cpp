@@ -22,7 +22,7 @@ Pgm::~Pgm(){
 	setLargura(0);
 	setValor(0);
 }
-
+//divide a linha de comentario do arquivo em pixel inicial, tamanho e deslocamento 
 void Pgm::dividirComentario(){
 
 	stringstream separador;
@@ -38,7 +38,7 @@ void Pgm::dividirComentario(){
 	this->pixelInicial = atoi(comTag.c_str());
 
 }
-
+	
 void Pgm::descriptografia(){
 
 
@@ -70,5 +70,5 @@ void Pgm::descriptografia(){
 }
 
 void Pgm::printImagem(){
-	cout<<getTipo()<<endl<<this->pixelInicial<<" "<<this->tamanho<<" "<<this->deslocamento<<endl<<getAltura()<<" "<<getLargura()<<endl<<getValor()<<endl<<this->mensagem<<endl;
+	cout << "A mensagem escondida na sua imagem é:" << this->mensagem << endl;
 }
